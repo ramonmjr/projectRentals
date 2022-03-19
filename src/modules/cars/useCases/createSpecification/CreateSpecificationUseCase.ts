@@ -6,12 +6,11 @@ interface IRequest {
 }
 
 class CreateSpecificationUseCase {
-
-  constructor(private specificationRepository: ISpecificationRepository) {
-  }
+  constructor(private specificationRepository: ISpecificationRepository) { }
 
   execute({ description, name }: IRequest) {
-    const specificationAlreadyExists = this.specificationRepository.findByName(name);
+    const specificationAlreadyExists =
+      this.specificationRepository.findByName(name);
 
     if (specificationAlreadyExists) {
       throw new Error("This Specification already exists!");
@@ -19,9 +18,9 @@ class CreateSpecificationUseCase {
 
     this.specificationRepository.create({
       name,
-      description
+      description,
     });
   }
 }
 
-export { CreateSpecificationUseCase }
+export { CreateSpecificationUseCase };
