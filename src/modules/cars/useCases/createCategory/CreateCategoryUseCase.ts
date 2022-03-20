@@ -6,14 +6,13 @@ interface IRequest {
 }
 
 /**
- * [x] - Definir tipo de retorno 
+ * [x] - Definir tipo de retorno
  * [x] - Alterar retorno do erro
  * [x] - Acessar o repositório
  * [x] - Retornar Algo
  */
 class CreateCategoryUseCase {
   constructor(private categoryRepository: ICategoriesRepository) { }
-
 
   execute({ name, description }: IRequest): void {
     const categoryAlreadyExists = this.categoryRepository.findByName(name);
@@ -26,4 +25,4 @@ class CreateCategoryUseCase {
   }
 }
 
-export { CreateCategoryUseCase }
+export { CreateCategoryUseCase };
